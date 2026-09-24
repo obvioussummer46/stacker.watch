@@ -75,3 +75,9 @@ scripts/pay-awards.config.json
 
 # dnsmasq
 docker/dnsmasq/dnsmasq.d/*
+# Xcode distribution output. Signed .ipa bundles carry embedded.mobileprovision,
+# which contains the team id, the signing certificate and, for ad-hoc profiles,
+# tester device UDIDs. Xcode's Organizer drops these wherever you point it.
+*.ipa
+*.xcarchive/
+/StackerWatch */
