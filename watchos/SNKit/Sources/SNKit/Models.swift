@@ -107,15 +107,80 @@ public enum FeedKind: String, CaseIterable, Codable, Sendable {
 public struct FeedKey: Hashable, Codable, Sendable {
     public var kind: FeedKind
     public var discussionsOnly: Bool
+    /// Territory to scope the feed to. `nil` reads the whole site.
+    public var sub: String?
 
-    public init(kind: FeedKind = .hot, discussionsOnly: Bool = true) {
+    public init(kind: FeedKind = .hot, discussionsOnly: Bool = true, sub: String? = nil) {
         self.kind = kind
         self.discussionsOnly = discussionsOnly
+        self.sub = sub
     }
 
     public var cacheFileName: String {
-        "feed-\(kind.rawValue)-\(discussionsOnly ? "discussions" : "all").json"
+        let scope = sub.map { "sub-" + Self.slug($0) } ?? "site"
+        return "feed-\(kind.rawValue)-\(discussionsOnly ? "discussions" : "all")-\(scope).json"
     }
+
+    /// Keeps territory names safe to use as a file name.
+    private static func slug(_ name: String) -> String {
+        let allowed = name.lowercased().map { character -> Character in
+            character.isLetter || character.isNumber ? character : "_"
+        }
+        return String(allowed)
+    }
+}
+
+/// One configurable screen: a site-wide feed, or a feed scoped to one territory.
+///
+/// The user arranges up to `maxScreens` of these; each becomes a horizontal page.
+public struct FeedSource: Hashable, Codable, Sendable, Identifiable {
+    public var kind: FeedKind
+    /// `nil` for the site-wide feed, otherwise a territory name.
+    public var sub: String?
+
+    public init(kind: FeedKind = .hot, sub: String? = nil) {
+        self.kind = kind
+        self.sub = sub
+    }
+
+    public var id: String { "\(sub ?? "")|\(kind.rawValue)" }
+
+    /// `Hot` for a site-wide feed, `~bitcoin` for a territory.
+    public var title: String { sub.map { "~\($0)" } ?? kind.title }
+    /// Which sort the screen uses, shown under the title in settings.
+    public var sortTitle: String { kind.title }
+    /// `~bitcoin · Hot`. Tells two screens for the same territory apart.
+    public var fullTitle: String { sub == nil ? kind.title : "\(title) · \(kind.title)" }
+    public var isTerritory: Bool { sub != nil }
+
+    public func key(discussionsOnly: Bool) -> FeedKey {
+        FeedKey(kind: kind, discussionsOnly: discussionsOnly, sub: sub)
+    }
+
+    /// Next sort in the cycle, for tapping a row in settings.
+    public var nextSort: FeedSource {
+        let all = FeedKind.allCases
+        let index = all.firstIndex(of: kind) ?? 0
+        return FeedSource(kind: all[(index + 1) % all.count], sub: sub)
+    }
+
+    public static let maxScreens = 6
+    /// What a fresh install starts with: the three site-wide feeds.
+    public static let defaults: [FeedSource] = FeedKind.allCases.map { FeedSource(kind: $0) }
+}
+
+/// A territory (a "sub" in the API).
+public struct Territory: Codable, Hashable, Identifiable, Sendable {
+    public let name: String
+    public var id: String { name }
+
+    public init(name: String) { self.name = name }
+}
+
+/// One page of the `topSubs` query.
+public struct TerritoriesPage: Decodable, Sendable {
+    public let cursor: String?
+    public let subs: [Territory]
 }
 
 public extension JSONDecoder {

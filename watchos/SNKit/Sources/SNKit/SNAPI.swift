@@ -18,6 +18,14 @@ public struct SNAPI: Sendable {
         return result.items
     }
 
+    /// Territories ranked by activity, for choosing a screen in settings.
+    public func fetchTopTerritories(when: String = "month", limit: Int = 30) async throws -> [Territory] {
+        let result = try await client.execute(Queries.topTerritories,
+                                              variables: ["when": when, "limit": limit],
+                                              as: TopSubsData.self)
+        return result.topSubs.subs
+    }
+
     public func fetchItem(id: String) async throws -> ItemDetail {
         let result = try await client.execute(Queries.item, variables: ["id": id], as: ItemData.self)
         guard let item = result.item else { throw SNError.graphQL(["Post not found"]) }
@@ -26,4 +34,5 @@ public struct SNAPI: Sendable {
 
     struct FeedData: Decodable { let items: ItemsPage }
     struct ItemData: Decodable { let item: ItemDetail? }
+    struct TopSubsData: Decodable { let topSubs: TerritoriesPage }
 }

@@ -11,10 +11,20 @@ public enum Queries {
 
     public static let feed = """
     \(itemFragment)
-    query WatchFeed($sort: String, $type: String, $when: String, $cursor: String, $limit: Limit) {
-      items(sort: $sort, type: $type, when: $when, cursor: $cursor, limit: $limit) {
+    query WatchFeed($sub: String, $sort: String, $type: String, $when: String, $cursor: String, $limit: Limit) {
+      items(sub: $sub, sort: $sort, type: $type, when: $when, cursor: $cursor, limit: $limit) {
         cursor
         items { ...WatchItem }
+      }
+    }
+    """
+
+    /// Territories ranked by recent activity; the source for the territory picker.
+    public static let topTerritories = """
+    query WatchTopSubs($when: String, $limit: Limit) {
+      topSubs(when: $when, limit: $limit) {
+        cursor
+        subs { name }
       }
     }
     """
@@ -39,6 +49,7 @@ public extension FeedKey {
     /// Variables for `Queries.feed`. `nil` values are dropped before sending.
     func variables(cursor: String?, limit: Int = Queries.defaultLimit) -> [String: Any?] {
         [
+            "sub": sub,
             "sort": kind.sort,
             "when": kind.when,
             "type": discussionsOnly ? "discussions" : nil,

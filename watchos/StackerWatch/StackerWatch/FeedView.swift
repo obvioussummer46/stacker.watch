@@ -1,81 +1,91 @@
 import SwiftUI
 import SNKit
 
-/// Root screen: one post per page, Digital Crown moves between posts.
+/// Root screen. Swipe sideways to change screen, turn the crown to move between posts.
+///
+/// Settings is the leftmost page, so it is one swipe right from the first feed. No
+/// toolbar buttons: on watchOS they render as tinted circles over the text.
 struct FeedView: View {
     @Environment(FeedModel.self) private var model
-    @State private var showPicker = false
 
     var body: some View {
         @Bindable var model = model
         NavigationStack(path: $model.path) {
-            content
-                .navigationDestination(for: Item.self) { item in
-                    PostDetailView(item: item)
+            TabView(selection: $model.page) {
+                SettingsView()
+                    .tag(FeedModel.Page.settings)
+                ForEach(model.screens) { source in
+                    FeedPageView(source: source)
+                        .tag(FeedModel.Page.feed(source))
                 }
-                .navigationTitle(model.feedKey.kind.title)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            showPicker = true
-                        } label: {
-                            Image(systemName: "line.3.horizontal.decrease.circle")
-                        }
-                        .accessibilityLabel("Choose feed")
-                    }
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        Button {
-                            Task { await model.surpriseMe() }
-                        } label: {
-                            Image(systemName: "shuffle")
-                        }
-                        .accessibilityLabel("Surprise me")
-                        Spacer()
-                        Button {
-                            Task { await model.refresh() }
-                        } label: {
-                            Image(systemName: "arrow.clockwise")
-                        }
-                        .accessibilityLabel("Refresh")
-                    }
-                }
-                .sheet(isPresented: $showPicker) {
-                    FeedPickerView()
-                }
+            }
+            .tabViewStyle(.page)
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: Item.self) { item in
+                PostDetailView(item: item)
+            }
         }
-        .task { await model.start() }
-        .onChange(of: model.selectedID) { _, id in
-            Task { await model.loadMoreIfNeeded(around: id) }
+        // Every screen loads up front, so a swipe lands on posts rather than a spinner.
+        .task { model.preloadAll() }
+        .onChange(of: model.screens) { _, _ in model.preloadAll() }
+        // Landing on a screen tops it up; a no-op when it is already fresh.
+        .onChange(of: model.page) { _, _ in model.preloadAll() }
+    }
+
+    private var title: String {
+        switch model.page {
+        case .settings: return "Settings"
+        case .feed(let source): return source.fullTitle
         }
+    }
+}
+
+/// One screen: a vertical pager of tiles, so the crown moves between posts.
+private struct FeedPageView: View {
+    @Environment(FeedModel.self) private var model
+    let source: FeedSource
+
+    var body: some View {
+        let state = model.state(for: source)
+        content(state)
+            .overlay(alignment: .top) {
+                if let banner = state.banner {
+                    BannerView(text: banner)
+                }
+            }
+            .onChange(of: state.selectedID) { _, id in
+                Task { await model.loadMoreIfNeeded(source: source, around: id) }
+            }
     }
 
     @ViewBuilder
-    private var content: some View {
-        @Bindable var model = model
-        if model.items.isEmpty {
-            switch model.phase {
+    private func content(_ state: FeedModel.FeedState) -> some View {
+        if state.pager.isEmpty {
+            switch state.phase {
             case .failed(let message):
-                ErrorView(message: message) { Task { await model.refresh() } }
+                ErrorView(message: message) { Task { await model.refresh(source) } }
             case .loaded:
                 EmptyFeedView()
             case .idle, .loading:
                 LoadingView()
             }
         } else {
-            TabView(selection: $model.selectedID) {
-                ForEach(model.items) { item in
-                    PostTileView(item: item)
-                        .tag(Optional(item.id))
+            TabView(selection: selection) {
+                ForEach(state.pager.items) { item in
+                    PostTileView(item: item, showsTerritory: !source.isTerritory) {
+                        Task { await model.refresh(source) }
+                    }
+                    .tag(Optional(item.id))
                 }
             }
             .tabViewStyle(.verticalPage)
-            .overlay(alignment: .top) {
-                if let banner = model.banner {
-                    BannerView(text: banner)
-                }
-            }
         }
+    }
+
+    private var selection: Binding<String?> {
+        Binding(get: { model.state(for: source).selectedID },
+                set: { model.setSelectedID($0, for: source) })
     }
 }
 
@@ -105,7 +115,7 @@ struct ErrorView: View {
                 .foregroundStyle(.secondary)
             Button("Retry", action: retry)
         }
-        .padding(.horizontal, 8)
+        .scenePadding(.horizontal)
     }
 }
 

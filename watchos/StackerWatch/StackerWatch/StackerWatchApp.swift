@@ -10,6 +10,7 @@ struct StackerWatchApp: App {
             FeedView()
                 .environment(model)
                 .tint(.snYellow)
+                .dynamicTypeSize(model.textSize.dynamicTypeSize)
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {

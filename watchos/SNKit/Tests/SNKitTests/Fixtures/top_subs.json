@@ -1,0 +1,17 @@
+{
+  "data": {
+    "topSubs": {
+      "cursor": "eyJvZmZzZXQiOjEyLCJ0aW1lIjoiMjAyNi0wOS0yNFQxMDo1NDoxMy45ODJaIn0=",
+      "subs": [
+        { "name": "bitcoin" },
+        { "name": "Stacker_Sports" },
+        { "name": "econ" },
+        { "name": "AskSN" },
+        { "name": "meta" },
+        { "name": "Politics_And_Law" },
+        { "name": "AI" },
+        { "name": "lightning" }
+      ]
+    }
+  }
+}

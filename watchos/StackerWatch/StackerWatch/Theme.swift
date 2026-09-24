@@ -16,6 +16,38 @@ extension ShapeStyle where Self == Color {
     static var snLink: Color { Color.snLink }
 }
 
+/// Reader text size, chosen in settings and applied with `.dynamicTypeSize`.
+///
+/// Stored as its `rawValue` so the model can persist it without importing SwiftUI.
+/// Smaller sizes fit more of a post on one screen.
+enum TextSize: Int, CaseIterable, Identifiable, Sendable {
+    case xSmall, small, medium, large, xLarge
+
+    static let `default` = TextSize.medium
+
+    var id: Int { rawValue }
+
+    var dynamicTypeSize: DynamicTypeSize {
+        switch self {
+        case .xSmall: return .xSmall
+        case .small: return .small
+        case .medium: return .medium
+        case .large: return .large
+        case .xLarge: return .xLarge
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .xSmall: return "Tiny"
+        case .small: return "Small"
+        case .medium: return "Default"
+        case .large: return "Large"
+        case .xLarge: return "Largest"
+        }
+    }
+}
+
 enum Format {
     /// 9419 -> "9.4k", 1_200_000 -> "1.2m"
     static func sats(_ value: Int) -> String {

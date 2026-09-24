@@ -1,20 +1,28 @@
 import SwiftUI
+import WatchKit
 import SNKit
 
 /// One full-screen tile. Fixed layout, no inner scrolling, so the crown pages tiles.
 struct PostTileView: View {
+    @Environment(FeedModel.self) private var model
     let item: Item
+    /// Off on a territory screen, where every post is from the same territory.
+    var showsTerritory = true
+    /// Long-press action. watchOS reserves a downward swipe for Notification Center,
+    /// and `refreshable` needs a scroll view, so a hold is the gesture left for this.
+    var onRefresh: () -> Void = {}
 
     var body: some View {
         NavigationLink(value: item) {
-            VStack(alignment: .leading, spacing: 5) {
-                MetaLine(item: item)
+            VStack(alignment: .leading, spacing: 4) {
+                ByLine(item: item, showsTerritory: showsTerritory)
                 Text(item.title ?? "Untitled")
                     .font(.headline)
                     .lineLimit(3)
-                    .foregroundStyle(.primary)
+                    // Grey once opened, so a glance says what is still unread.
+                    .foregroundStyle(model.isRead(item.id) ? Color.snGrey : Color.primary)
                 if let domain = item.domain {
-                    Label(domain, systemImage: "link")
+                    Text(domain)
                         .font(.caption2)
                         .foregroundStyle(.snLink)
                         .lineLimit(1)
@@ -23,35 +31,53 @@ struct PostTileView: View {
                     Text(MarkdownLite.excerpt(item.text))
                         .font(.body)
                         .foregroundStyle(.primary.opacity(0.85))
-                        .lineLimit(item.isLink ? 4 : 6)
+                        .lineLimit(item.isLink ? 6 : 8)
                 }
-                Spacer(minLength: 0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .padding(.horizontal, 6)
+        .scenePadding(.horizontal)
+        .onLongPressGesture {
+            WKInterfaceDevice.current().play(.click)
+            onRefresh()
+        }
     }
 }
 
-/// `~sub · @user · ⚡ 9.4k · 12 comments · 3h`
-struct MetaLine: View {
+/// ```
+/// ~territory
+/// @user                    3h
+/// ```
+///
+/// Two lines rather than one: on a site-wide feed the territory changes from post to
+/// post and is worth its own line, and splitting them means a long territory name can
+/// no longer squeeze the poster off the screen.
+struct ByLine: View {
     let item: Item
+    var showsTerritory = true
 
     var body: some View {
-        HStack(spacing: 4) {
-            if let sub = item.primarySub {
+        VStack(alignment: .leading, spacing: 0) {
+            if showsTerritory, let sub = item.primarySub {
                 Text("~\(sub)")
                     .foregroundStyle(.snYellow)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
             }
-            Text("@\(item.user.name)")
-            Spacer(minLength: 0)
-            Text("⚡\(Format.sats(item.sats))")
-            Text(Format.age(item.createdAt))
+            HStack(spacing: 4) {
+                Text("@\(item.user.name)")
+                    .foregroundStyle(.snGrey)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                Spacer(minLength: 2)
+                Text(Format.age(item.createdAt))
+                    .foregroundStyle(.snGrey)
+                    .lineLimit(1)
+                    .fixedSize()
+            }
         }
         .font(.caption2)
-        .foregroundStyle(.snGrey)
-        .lineLimit(1)
     }
 }

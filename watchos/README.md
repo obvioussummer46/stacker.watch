@@ -6,13 +6,22 @@ move to the next one, tap to read the whole thing. Made for reading a few paragr
 
 ## What it does
 
-- **Feeds**: Hot (default), Recent, Top this week. Text posts only by default; link posts
-  can be switched on in the feed picker.
+- **Screens**: up to 6 horizontal pages; swipe left/right between them. Each is either a
+  site-wide feed (Hot, Recent, Top this week) or one territory with one sort, so
+  `~bitcoin · Hot` and `~bitcoin · Recent` can both be their own page. A fresh install
+  starts with the three site-wide feeds.
 - **Tiles**: one post per page in a vertical pager. The crown or a swipe moves between posts.
+  Each tile shows the territory and the poster; zaps are in the reader.
 - **Reader**: tap a tile for the full post, rendered from markdown, followed by the top-level
   comments. The crown scrolls.
-- **Surprise me**: bottom-left button opens a random post from the year's top discussions.
-- **Instant launch**: the last feed is cached on disk, so a post appears before the network
+- **No waiting**: every screen refreshes in the background on launch and on foreground, so a
+  sideways swipe lands on posts instead of a spinner.
+- **Settings**: the leftmost page, one swipe right from the first feed. Long-press and drag to
+  reorder screens, set the text size, toggle link posts, and open *Modify screens* to add or
+  remove with check marks. Territories you have chosen sort to the top there, and the
+  territory list is cached for a month rather than refetched on every visit. No toolbar
+  buttons — on watchOS those render as tinted circles on top of the text.
+- **Instant launch**: every screen is cached on disk, so a post appears before the network
   answers. Cached posts are readable offline.
 - **Dark**: black background, stacker.news yellow accent. watchOS has no light mode.
 
@@ -25,8 +34,9 @@ watchos/
   StackerWatch/   watchOS SwiftUI app (Xcode project + sources + assets).
 ```
 
-The app talks to the public GraphQL endpoint at `https://stacker.news/api/graphql` with two
-queries: `items(...)` for feeds and `item(id:)` for a post with its comments. No API key.
+The app talks to the public GraphQL endpoint at `https://stacker.news/api/graphql` with three
+queries: `items(...)` for feeds (passing `sub` for a territory), `item(id:)` for a post with
+its comments, and `topSubs(...)` to list territories in settings. No API key.
 
 ## Build on a Mac
 
