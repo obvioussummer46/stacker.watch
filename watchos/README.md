@@ -47,8 +47,21 @@ git clone -b claude/stacker-news-apple-watch-by88qp https://github.com/obvioussu
 open stacker.watch/watchos/StackerWatch/StackerWatch.xcodeproj
 ```
 
-In Xcode pick your team under Signing & Capabilities, choose an Apple Watch simulator running
-watchOS 10 or newer, and run. For a real watch, pair it with your iPhone in Xcode first.
+Simulator builds work straight from a clone. For a device build or an archive you need your own
+Apple Team ID, which the project reads from a gitignored file rather than carrying in
+`project.pbxproj`:
+
+```sh
+echo 'DEVELOPMENT_TEAM = ABCDE12345' > watchos/StackerWatch/Local.xcconfig
+```
+
+`StackerWatch/Signing.xcconfig` explains how to find your Team ID — it is the `OU` field of
+your signing certificate, not the code in parentheses in the certificate's name. Without the
+file the project still opens and builds for the simulator; only signing fails, with "requires a
+development team".
+
+Choose an Apple Watch simulator running watchOS 10 or newer and run. For a real watch, pair it
+with your iPhone in Xcode first.
 
 The `SNKit` package is linked as a local package (the `Packages` group), so it builds as part
 of the app with no extra setup.

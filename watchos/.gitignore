@@ -5,3 +5,6 @@ DerivedData/
 .swiftpm/
 Package.resolved
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
+# Local signing (Apple Team ID). See StackerWatch/Signing.xcconfig.
+Local.xcconfig

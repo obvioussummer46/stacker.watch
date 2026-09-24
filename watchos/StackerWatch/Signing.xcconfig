@@ -1,0 +1,20 @@
+// Signing lives here rather than in project.pbxproj, so that a public checkout
+// carries no Apple Team ID and so cloning this repo doesn't mean editing the
+// project file to build it.
+//
+// Put your own team in Local.xcconfig, next to this file. It is gitignored:
+//
+//     DEVELOPMENT_TEAM = ABCDE12345
+//
+// To find yours:
+//
+//     security find-identity -v -p codesigning
+//     security find-certificate -c "<the common name>" -p | openssl x509 -noout -subject
+//
+// The Team ID is the certificate's OU field. It is *not* the code in parentheses
+// in the common name — that identifies the certificate, and using it here fails
+// the build with a signing error that doesn't explain itself.
+//
+// Without Local.xcconfig the project still opens and builds for the simulator;
+// only device builds and archiving fail, with "requires a development team".
+#include? "Local.xcconfig"
