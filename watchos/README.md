@@ -70,8 +70,17 @@ curl -s https://stacker.news/api/graphql -H 'content-type: application/json' \
 ## App icon
 
 `StackerWatch/StackerWatch/Assets.xcassets/AppIcon.appiconset/icon.png` is a 1024x1024 opaque
-PNG rendered from `svgs/sn.svg` on the site's yellow. Replace it with any 1024x1024 PNG
-without alpha if you want a different one.
+PNG: the `svgs/sn.svg` bolt on the site's yellow, inside a bezel ring so it reads as the watch
+edition. Regenerate it with
+
+```sh
+cd watchos && swift Tools/make-icon.swift
+```
+
+watchOS clips app icons to a circle, and the bolt reaches 12% past that circle at its natural
+size — both lightning tips were being cut off. `Tools/make-icon.swift` scales it to fit and
+prints the overflow, so change `markFraction` rather than eyeballing it. Replace the PNG with
+any 1024x1024 image without alpha if you want a different one.
 
 ## Not in stage 1
 
