@@ -33,8 +33,8 @@ queries: `items(...)` for feeds and `item(id:)` for a post with its comments. No
 Requirements: Xcode 15 or newer. No other tooling.
 
 ```sh
-git clone -b claude/stacker-news-apple-watch-by88qp https://github.com/obvioussummer46/stacker.news.git
-open stacker.news/watchos/StackerWatch/StackerWatch.xcodeproj
+git clone -b claude/stacker-news-apple-watch-by88qp https://github.com/obvioussummer46/stacker.watch.git
+open stacker.watch/watchos/StackerWatch/StackerWatch.xcodeproj
 ```
 
 In Xcode pick your team under Signing & Capabilities, choose an Apple Watch simulator running
