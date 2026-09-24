@@ -1,0 +1,43 @@
+{
+  "data": {
+    "items": {
+      "cursor": "eyJ0aW1lIjoiMjAyNi0wOS0yNFQwNzozNzowNi40NTNaIiwia2V5IjoiMjAyNi0wOS0yNFQwNDo1MzowOS41MzZaIiwiaWQiOjE1ODA3NTV9",
+      "items": [
+        {
+          "id": "1580788",
+          "title": "‘Big brother is already here’ Senators push for guardrails on Flock cameras",
+          "url": "https://www.wtoc.com/2026/09/24/big-brother-is-already-here-warnock-senators-push-federal-guardrails-flock-cameras/",
+          "text": "![](https://m.stacker.news/158579)\n\n> Warnock: Big brother is already here. Hawley: What makes these networks unique is not just the number of cameras, but that they are all connected together, powere",
+          "sats": 0,
+          "boost": 0,
+          "ncomments": 0,
+          "createdAt": "2026-09-24T07:13:04.378Z",
+          "subNames": [
+            "news",
+            "Politics_And_Law"
+          ],
+          "user": {
+            "name": "satoshiplanet"
+          }
+        },
+        {
+          "id": "1580769",
+          "title": "The Path to $1M Bitcoin: How Bitcoin Becomes _the_ Price (Eric Yakes, Substack)",
+          "url": "https://ericyakes.substack.com/p/the-path-to-1m-bitcoin",
+          "text": "The four-year cycle is dead (once more...). Our beloved Mr. Yakes is out here slaying it (spreading premature rumours of its demise?? https://stacker.news/items/1572208)\n\n## \"The recent price rally to",
+          "sats": 60,
+          "boost": 0,
+          "ncomments": 0,
+          "createdAt": "2026-09-24T05:40:39.029Z",
+          "subNames": [
+            "Stacker_Stocks",
+            "econ"
+          ],
+          "user": {
+            "name": "denlillaapan"
+          }
+        }
+      ]
+    }
+  }
+}

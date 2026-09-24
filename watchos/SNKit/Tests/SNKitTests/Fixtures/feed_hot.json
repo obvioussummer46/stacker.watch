@@ -1,0 +1,90 @@
+{
+  "data": {
+    "items": {
+      "cursor": "eyJ0aW1lIjoiMjAyNi0wOS0yNFQwNzozNjo1Ni4xMDlaIiwia2V5Ijo4NjE3OS44MjU3MDY1MTc0OCwiaWQiOjE1ODA3MjR9",
+      "items": [
+        {
+          "id": "1580650",
+          "title": "Rocket Mass Heater - Extremely efficient wood heater",
+          "url": null,
+          "text": "We can heat our well insulated 900sqft of living space to 65-70°f using around 2 cords of wood each year with our Rocket Mass Heater. We typically wake up to 65°f and burn a fire in the morning and another fire in the evening. A \"J\" tube burn chamber covered by a 55gal barrel creates radiant heat as well as a thermal pump which forces exhaust gasses horizontally though ducting in a large box filled with pea gravel. The gravel extracts most of the heat from the exhaust radiating it out slowly after the fire burns out. By the time the exhaust reaches the chimney it's 120-200°f down from 300-500°",
+          "sats": 9419,
+          "boost": 4200,
+          "ncomments": 5,
+          "createdAt": "2026-09-23T23:40:09.528Z",
+          "subNames": [
+            "Permaculture"
+          ],
+          "user": {
+            "name": "revhodl21"
+          }
+        },
+        {
+          "id": "1579964",
+          "title": "Which online community is the worst?",
+          "url": null,
+          "text": "Which platform evokes the most disgust when you go to read the comments?",
+          "sats": 1501,
+          "boost": 6100,
+          "ncomments": 28,
+          "createdAt": "2026-09-23T04:39:24.543Z",
+          "subNames": [
+            "AskSN"
+          ],
+          "user": {
+            "name": "Kruw"
+          }
+        },
+        {
+          "id": "1580719",
+          "title": "Is trigonometry a waste of time (for most of us)?",
+          "url": null,
+          "text": "I saw this post by Vitalik:\n\n![](https://m.stacker.news/158546)\n\n[source](https://x.com/VitalikButerin/status/2102026491043492146)\n\nAnd it made me think: there are certainly some benefits to how different mathematics concepts change your understanding of the world, but I agree that I didnt gain too much from trigonometry and I haven't had much occasion to use it in my life. I certainly wish I had spent a lot more time on statistics. What do you think?",
+          "sats": 1681,
+          "boost": 0,
+          "ncomments": 9,
+          "createdAt": "2026-09-24T02:47:19.843Z",
+          "subNames": [
+            "math",
+            "AskSN"
+          ],
+          "user": {
+            "name": "Scoresby"
+          }
+        },
+        {
+          "id": "1551074",
+          "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+          "url": null,
+          "text": "I have been building a bitcoin block explorer and I feel it's good enough to show:\n\n[https://openbitcoin.com](https://openbitcoin.com)\n\nThe site runs its own hardware, bitcoin node and address index. No third-party blockchain API used.\n\nInside the site:\n\n- Explorer: blocks, transactions and addresses at root-level URLs. (very important, a feature I always wanted with other explorers, a quick easy way to query an address) For example you can type openbitcoin.com/block_number_here or openbitcoin.com/txid_here or openbitcoin.com/address_here to load the page instantly without visiting the site to",
+          "sats": 4927,
+          "boost": 354900,
+          "ncomments": 66,
+          "createdAt": "2026-08-19T19:44:47.321Z",
+          "subNames": [
+            "bitcoin"
+          ],
+          "user": {
+            "name": "openbitcoin"
+          }
+        },
+        {
+          "id": "1580724",
+          "title": "Core Lightning 26.06.8 is out, and every node runner should upgrade.",
+          "url": null,
+          "text": "This release fixes vulnerabilities responsibly reported over recent weeks. There is no embargo period: the release and fixes are available right now.\n\nA number of tests are being held back temporarily to make the underlying issues harder to reverse-engineer while node runners have time to upgrade.\n\nPlease upgrade as soon as possible.\n\nhttps://github.com/ElementsProject/lightning/releases/tag/v26.06.8",
+          "sats": 1231,
+          "boost": 0,
+          "ncomments": 0,
+          "createdAt": "2026-09-24T02:55:52.348Z",
+          "subNames": [
+            "bitcoin"
+          ],
+          "user": {
+            "name": "blockstream_official"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "data": {
+    "item": {
+      "id": "1579742",
+      "title": "My hot water mines Bitcoin and cooks food, with canola oil",
+      "url": null,
+      "text": "Cooking hash-vide style rabbit ramen with Bitcoin mining hot water heater\n![](https://i.nostr.build/DxEDnACpHbOLPlsj.jpg)\n![](https://i.nostr.build/564O7dCiXywaJLhI.jpg)\nThe second meal cooked in the Bitcoin mining hot water heater is rabbit ramen soup. Rabbit grown and harvested right here at the homestead, along with these other ingredients from the homestead rabbit stock, garlic, and finally golden oyster mushrooms dehydrated with a Bitcoin miner. Soy sauce, rice vinegar, lemon, sesame oil, J",
+      "sats": 37818,
+      "boost": 420,
+      "ncomments": 26,
+      "createdAt": "2026-09-22T21:28:56.840Z",
+      "subNames": [
+        "bitcoin_Mining"
+      ],
+      "user": {
+        "name": "revhodl21"
+      },
+      "comments": {
+        "cursor": null,
+        "comments": [
+          {
+            "id": "1579963",
+            "text": "sous vide with canola oil, nice. I am glad, i was worried you eat the canola oil as well, that'd be very bad for your health ( seed oil hater here )",
+            "createdAt": "2026-09-23T04:38:48.677Z",
+            "sats": 122,
+            "ncomments": 1,
+            "user": {
+              "name": "martinbarilik"
+            }
+          },
+          {
+            "id": "1579837",
+            "text": "I didn't understand how you used the canola oil. Is the duck cooking in it directly, or is it just conducting the heat?",
+            "createdAt": "2026-09-22T23:22:15.417Z",
+            "sats": 79,
+            "ncomments": 1,
+            "user": {
+              "name": "billytheked"
+            }
+          },
+          {
+            "id": "1579762",
+            "text": "Where did the rabbit come from?\n\nEdit: whoops missed this\n\n> Rabbit grown and harvested right here at the homestead",
+            "createdAt": "2026-09-22T22:03:52.214Z",
+            "sats": 123,
+            "ncomments": 14,
+            "user": {
+              "name": "k00b"
+            }
+          },
+          {
+            "id": "1579793",
+            "text": "\"Bitcoin miner rabbit ramen sous vide in canola oil\" is the best thing I've read all month! Amen!",
+            "createdAt": "2026-09-22T22:25:22.226Z",
+            "sats": 143,
+            "ncomments": 0,
+            "user": {
+              "name": "Scoresby"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

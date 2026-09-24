@@ -1,0 +1,59 @@
+{
+  "data": {
+    "items": {
+      "cursor": "eyJ0aW1lIjoiMjAyNi0wOS0yNFQwNzozNjo1Ni41NTlaIiwia2V5IjoyNTUzMDAwMCwiaWQiOjE1Nzk4MTd9",
+      "items": [
+        {
+          "id": "1579742",
+          "title": "My hot water mines Bitcoin and cooks food, with canola oil",
+          "url": null,
+          "text": "Cooking hash-vide style rabbit ramen with Bitcoin mining hot water heater\n![](https://i.nostr.build/DxEDnACpHbOLPlsj.jpg)\n![](https://i.nostr.build/564O7dCiXywaJLhI.jpg)\nThe second meal cooked in the Bitcoin mining hot water heater is rabbit ramen soup. Rabbit grown and harvested right here at the homestead, along with these other ingredients from the homestead rabbit stock, garlic, and finally go",
+          "sats": 37818,
+          "boost": 420,
+          "ncomments": 26,
+          "createdAt": "2026-09-22T21:28:56.840Z",
+          "subNames": [
+            "bitcoin_Mining"
+          ],
+          "user": {
+            "name": "revhodl21"
+          }
+        },
+        {
+          "id": "1574968",
+          "title": "[Book Review] Colonialism: A Moral Reckoning",
+          "url": null,
+          "text": "**Review of *Colonialism: A Moral Reckoning*, by Nigel Biggar**\n\n![](https://www.harpercollins.com/cdn/shop/files/9780008511630_1808b77c-2914-4b37-aee1-3acd4156a4a5.jpg?v=1720130295&width=350)\n\n## The strange inconsistency of the modern left\n\nObserve Western politics long enough and you'll inevitably come across the strange inconsistency of the modern left.  This strange inconsistency is perhaps n",
+          "sats": 33089,
+          "boost": 0,
+          "ncomments": 30,
+          "createdAt": "2026-09-17T14:15:49.893Z",
+          "subNames": [
+            "BooksAndArticles",
+            "Politics_And_Law",
+            "history"
+          ],
+          "user": {
+            "name": "SimpleStacker"
+          }
+        },
+        {
+          "id": "1579817",
+          "title": "Invalid Bitcoin blocks: full PoW, consensus invalid",
+          "url": null,
+          "text": "![](https://m.stacker.news/158419)\n\nI’ve put together a [catalogue](https://github.com/bitcoin-data/invalid-blocks) and a corresponding [post](https://deadmanoz.xyz/posts/2026/invalid-blocks) detailing 143 Bitcoin blocks that met the required proof-of-work target but failed a consensus rule, from the 2010 overflow to two previously unreported F2Pool timestamp failures from 2026!!\n\nThe catalogue br",
+          "sats": 25343,
+          "boost": 0,
+          "ncomments": 5,
+          "createdAt": "2026-09-22T23:05:14.517Z",
+          "subNames": [
+            "bitcoin"
+          ],
+          "user": {
+            "name": "deadmanoz"
+          }
+        }
+      ]
+    }
+  }
+}
