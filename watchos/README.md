@@ -70,17 +70,18 @@ curl -s https://stacker.news/api/graphql -H 'content-type: application/json' \
 ## App icon
 
 `StackerWatch/StackerWatch/Assets.xcassets/AppIcon.appiconset/icon.png` is a 1024x1024 opaque
-PNG: the `svgs/sn.svg` bolt on the site's yellow, inside a bezel ring so it reads as the watch
-edition. Regenerate it with
+PNG: the stacker.news lightning mark on the site's yellow, with the `N` swapped for a `W` so it
+reads SW for Stacker Watch. The `S` is the path from `svgs/sn.svg` verbatim. Regenerate with
 
 ```sh
 cd watchos && swift Tools/make-icon.swift
 ```
 
-watchOS clips app icons to a circle, and the bolt reaches 12% past that circle at its natural
-size — both lightning tips were being cut off. `Tools/make-icon.swift` scales it to fit and
-prints the overflow, so change `markFraction` rather than eyeballing it. Replace the PNG with
-any 1024x1024 image without alpha if you want a different one.
+Two things the script is there to get right. watchOS clips app icons to a circle, and the mark
+reaches 12% past that circle at its natural size, so the site's art loses both lightning tips
+on a watch — `markFraction` scales it to fit and the script prints the overflow. And the `W` is
+built as a tapered ribbon whose weight has to match the hand-drawn `S`; `halfWidth` is that
+dial, 12 by default, spindly below 10 and blobby above 15.
 
 ## Not in stage 1
 

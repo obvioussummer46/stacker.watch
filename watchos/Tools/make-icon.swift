@@ -1,54 +1,90 @@
+// Renders the watch app icon: the stacker.news lightning mark with the "N" swapped
+// for a "W", so it reads SW for Stacker Watch.
+//
+// Run from `watchos/`:
+//     swift Tools/make-icon.swift
+//
+// Two things this exists to get right. First, watchOS clips app icons to a circle
+// inscribed in the square, and the mark at its natural size reaches past that circle
+// — the site's art loses both lightning tips on a watch. Second, the "W" has to carry
+// the same weight as the hand-drawn "S" next to it, which is a number to tune rather
+// than something to eyeball.
+
 import Foundation
 import CoreGraphics
 import ImageIO
 import UniformTypeIdentifiers
 
-// The stacker.news "SN" bolt, transcribed from svgs/sn.svg. All straight segments,
-// two subpaths, in a 256x256 viewBox.
-let bolt: [[CGPoint]] = [
-    [(46.7, 96.4), (84.558, 150.237), (12.771, 213.171),
-     (117.5, 155.4), (77.425, 102.546), (126.837, 43.054)],
-    [(203.05, 137.946), (153.634, 79.437), (118.725, 196.208),
-     (162.975, 128.85), (221.484, 188.1), (241.4, 47.725)]
-].map { $0.map { CGPoint(x: $0.0, y: $0.1) } }
+/// The "S" of the stacker.news mark, transcribed from `svgs/sn.svg`. Untouched: the
+/// whole point is that this still looks like stacker.news. 256x256 viewBox, y down.
+let letterS: [CGPoint] = [
+    (46.7, 96.4), (84.558, 150.237), (12.771, 213.171),
+    (117.5, 155.4), (77.425, 102.546), (126.837, 43.054)
+].map { CGPoint(x: $0.0, y: $0.1) }
+
+func norm(_ v: CGPoint) -> CGPoint {
+    let l = hypot(v.x, v.y)
+    return CGPoint(x: v.x / l, y: v.y / l)
+}
+
+/// Turns a zigzag centreline into a closed tapered ribbon: a single point at each
+/// end, mitred corners in between. That's how the mark's letters are built — thick
+/// through the bends, pinched to a spike at the tips.
+func ribbon(_ centre: [CGPoint], halfWidth h: CGFloat) -> [CGPoint] {
+    func offsets(_ sign: CGFloat) -> [CGPoint] {
+        (1..<centre.count - 1).map { i in
+            let d1 = norm(CGPoint(x: centre[i].x - centre[i-1].x, y: centre[i].y - centre[i-1].y))
+            let d2 = norm(CGPoint(x: centre[i+1].x - centre[i].x, y: centre[i+1].y - centre[i].y))
+            let n1 = CGPoint(x: -d1.y * sign, y: d1.x * sign)
+            let n2 = CGPoint(x: -d2.y * sign, y: d2.x * sign)
+            let m = norm(CGPoint(x: n1.x + n2.x, y: n1.y + n2.y))
+            // Clamped so a tight bend produces a blunt mitre instead of a long spear.
+            let cosHalf = max(0.25, m.x * n1.x + m.y * n1.y)
+            let len = h / cosHalf
+            return CGPoint(x: centre[i].x + m.x * len, y: centre[i].y + m.y * len)
+        }
+    }
+    return [centre.first!] + offsets(1) + [centre.last!] + offsets(-1).reversed()
+}
+
+/// The "W", sitting in the box the original "N" occupied.
+///
+/// `halfWidth` is the weight dial. Below about 10 the strokes go spindly and vanish
+/// at the ~50px the icon is actually drawn at; above about 15 the W reads as a solid
+/// blob next to the airy S. 12 balances the two.
+func letterW(halfWidth: CGFloat = 12) -> [CGPoint] {
+    let centre: [CGPoint] = [
+        (128, 50),    // top-left spike
+        (152, 186),   // first valley
+        (185, 104),   // middle peak
+        (214, 186),   // second valley
+        (243, 46)     // top-right spike
+    ].map { CGPoint(x: $0.0, y: $0.1) }
+    return ribbon(centre, halfWidth: halfWidth)
+}
 
 let snYellow = CGColor(red: 0.980, green: 0.855, blue: 0.369, alpha: 1)
 let ink = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
 
-/// Furthest the artwork reaches from the centre of the 256 box.
-func boltRadius() -> CGFloat {
-    bolt.flatMap { $0 }.map { hypot($0.x - 128, $0.y - 128) }.max()!
-}
-
-/// - markFraction: where the bolt's furthest tip lands, as a fraction of the
-///   circular crop radius. watchOS clips icons to a circle, so anything past 1.0
-///   is cut off.
-/// - ring: bezel ring as (radiusFraction, widthFraction), or nil for none.
-func render(size: Int, markFraction: CGFloat, ring: (CGFloat, CGFloat)?, to path: String) {
+/// - markFraction: where the art's furthest point lands as a fraction of the
+///   circular crop radius. Past 1.0 and watchOS cuts it off.
+func render(_ glyphs: [[CGPoint]], size: Int, markFraction: CGFloat, to path: String) {
     let s = CGFloat(size)
+    let radius = glyphs.flatMap { $0 }.map { hypot($0.x - 128, $0.y - 128) }.max()!
+    let scale = (s / 2 * markFraction) / radius
+
     let ctx = CGContext(data: nil, width: size, height: size, bitsPerComponent: 8,
                         bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
                         bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
     ctx.setFillColor(snYellow)
     ctx.fill(CGRect(x: 0, y: 0, width: s, height: s))
 
-    let crop = s / 2                              // circular crop radius
-    let scale = (crop * markFraction) / boltRadius()
-
-    if let (radiusFraction, widthFraction) = ring {
-        ctx.setStrokeColor(ink)
-        ctx.setLineWidth(s * widthFraction)
-        let r = crop * radiusFraction
-        ctx.strokeEllipse(in: CGRect(x: s / 2 - r, y: s / 2 - r, width: r * 2, height: r * 2))
-    }
-
     // SVG y grows downward, CoreGraphics upward, so flip about the centre.
     ctx.setFillColor(ink)
     let p = CGMutablePath()
-    for poly in bolt {
-        let mapped = poly.map { pt in
-            CGPoint(x: s / 2 + (pt.x - 128) * scale,
-                    y: s / 2 - (pt.y - 128) * scale)
+    for glyph in glyphs {
+        let mapped = glyph.map {
+            CGPoint(x: s / 2 + ($0.x - 128) * scale, y: s / 2 - ($0.y - 128) * scale)
         }
         p.move(to: mapped[0])
         for q in mapped.dropFirst() { p.addLine(to: q) }
@@ -57,22 +93,17 @@ func render(size: Int, markFraction: CGFloat, ring: (CGFloat, CGFloat)?, to path
     ctx.addPath(p)
     ctx.fillPath(using: .evenOdd)
 
-    let url = URL(fileURLWithPath: path)
-    let dest = CGImageDestinationCreateWithURL(url as CFURL, UTType.png.identifier as CFString, 1, nil)!
+    let dest = CGImageDestinationCreateWithURL(URL(fileURLWithPath: path) as CFURL,
+                                               UTType.png.identifier as CFString, 1, nil)!
     CGImageDestinationAddImage(dest, ctx.makeImage()!, nil)
     CGImageDestinationFinalize(dest)
     print("wrote \(path)")
 }
 
-let r = boltRadius()
-print(String(format: "bolt reaches %.1f of 128 in the source art (%.0f%% past the circular crop)",
-             r, (r / 128 - 1) * 100))
+let glyphs = [letterS, letterW()]
+let natural = glyphs.flatMap { $0 }.map { hypot($0.x - 128, $0.y - 128) }.max()!
+print(String(format: "art reaches %.1f of 128 at natural size (%.0f%% past the circular crop)",
+             natural, (natural / 128 - 1) * 100))
 
-// The shipping icon: a bezel ring so it reads as the watch edition, with the bolt
-// pulled inside it. Run from `watchos/`:
-//     swift Tools/make-icon.swift
-render(size: 1024, markFraction: 0.74, ring: (0.90, 0.030),
+render(glyphs, size: 1024, markFraction: 0.86,
        to: "StackerWatch/StackerWatch/Assets.xcassets/AppIcon.appiconset/icon.png")
-
-// Without the ring, the bolt can sit a little larger. Kept for comparison.
-// render(size: 1024, markFraction: 0.86, ring: nil, to: "/tmp/icon_plain.png")
