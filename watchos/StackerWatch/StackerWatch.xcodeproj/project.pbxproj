@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		0C85C03983B2BBD82126C25C /* StackerWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F99B7D848C9CEA470FFEE /* StackerWatchApp.swift */; };
 		2A054C945BA105D23D281D28 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFC804D694501837B8F567 /* FeedModel.swift */; };
 		2A4303AC6D37964BF19C3CF8 /* PostTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C17C4F1411DA37292A5CD /* PostTileView.swift */; };
+		32B3538A30654BB70062774A /* StackerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C6A4383EBBB444B0A74BF508 /* StackerWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		76CF529EF438672DA9FA220D /* MarkdownBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */; };
 		9F6DFFD6F115DAD76495ACDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE6D61F244576D6AF1F44C /* SettingsView.swift */; };
 		BD4A122761F2852814810D18 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0757CA335507F0EBFB03DA /* Theme.swift */; };
@@ -19,10 +20,36 @@
 		FADA793FAF8AE19DBEF2E333 /* SNKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72A8D2BD23D247F0B824046E /* SNKit */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		32B3538B30654BB70062774A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E8A3AD980EC179856012B7E;
+			remoteInfo = StackerWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		32B3539630654BB80062774A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				32B3538A30654BB70062774A /* StackerWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1626F7D8715B7F7EF6A3572F /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		1C6CB565C0AD1267B2FB1908 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		2DFFC804D694501837B8F567 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		32B3538430654BB70062774A /* Stacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B3538930654BB70062774A /* Stacker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stacker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C58484A5564663B7C93640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownBlocksView.swift; sourceTree = "<group>"; };
 		674CA42173E7B519821B79A5 /* SNKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SNKit; path = ../SNKit; sourceTree = "<group>"; };
@@ -33,6 +60,10 @@
 		CC2C17C4F1411DA37292A5CD /* PostTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTileView.swift; sourceTree = "<group>"; };
 		D5BD05883F9D7422BA9F0FEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		32B3538D30654BB70062774A /* Stacker Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Stacker Watch App"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FE7006A0F8A8753331FC7CCD /* Frameworks */ = {
@@ -50,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				C6A4383EBBB444B0A74BF508 /* StackerWatch.app */,
+				32B3538430654BB70062774A /* Stacker.app */,
+				32B3538930654BB70062774A /* Stacker Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +92,7 @@
 			children = (
 				C8A1E76B6CA46DDC89E29CCD /* StackerWatch */,
 				E5ED73D01DA89A489D7C578C /* Packages */,
+				32B3538D30654BB70062774A /* Stacker Watch App */,
 				E98EF9E8E463C4AD21FCC778 /* Frameworks */,
 				692092DE1C1C8624E142B71D /* Products */,
 			);
@@ -119,6 +153,25 @@
 			productReference = C6A4383EBBB444B0A74BF508 /* StackerWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		32B3538330654BB70062774A /* Stacker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B3539A30654BB80062774A /* Build configuration list for PBXNativeTarget "Stacker" */;
+			buildPhases = (
+				32B3538230654BB70062774A /* Resources */,
+				32B3539630654BB80062774A /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32B3538C30654BB70062774A /* PBXTargetDependency */,
+			);
+			name = Stacker;
+			packageProductDependencies = (
+			);
+			productName = Stacker;
+			productReference = 32B3538430654BB70062774A /* Stacker.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -126,11 +179,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					0E8A3AD980EC179856012B7E = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					32B3538330654BB70062774A = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -148,11 +204,19 @@
 			projectRoot = "";
 			targets = (
 				0E8A3AD980EC179856012B7E /* StackerWatch */,
+				32B3538330654BB70062774A /* Stacker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		32B3538230654BB70062774A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB2660E5E1235C14F8623B10 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,6 +245,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		32B3538C30654BB70062774A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E8A3AD980EC179856012B7E /* StackerWatch */;
+			targetProxy = 32B3538B30654BB70062774A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1E0D549F0915174FF8BD83EB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -201,15 +273,70 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
+		};
+		32B3539430654BB80062774A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKP7686BZ3;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		32B3539530654BB80062774A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKP7686BZ3;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
 		};
 		9DDA0FC41D82F4AB4C32F490 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -230,9 +357,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -357,6 +485,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		32B3539A30654BB80062774A /* Build configuration list for PBXNativeTarget "Stacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B3539430654BB80062774A /* Debug */,
+				32B3539530654BB80062774A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C27597A03A9878D4B1DD0D3F /* Build configuration list for PBXProject "StackerWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
