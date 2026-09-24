@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A054C945BA105D23D281D28 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFC804D694501837B8F567 /* FeedModel.swift */; };
+		9F6DFFD6F115DAD76495ACDE /* FeedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE6D61F244576D6AF1F44C /* FeedPickerView.swift */; };
+		F6ABB63E0DB6F41F890FA7A4 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626F7D8715B7F7EF6A3572F /* FeedView.swift */; };
+		76CF529EF438672DA9FA220D /* MarkdownBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */; };
+		F3258428C4C91FF92AAC6B08 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CB565C0AD1267B2FB1908 /* PostDetailView.swift */; };
+		2A4303AC6D37964BF19C3CF8 /* PostTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2C17C4F1411DA37292A5CD /* PostTileView.swift */; };
+		0C85C03983B2BBD82126C25C /* StackerWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F99B7D848C9CEA470FFEE /* StackerWatchApp.swift */; };
+		BD4A122761F2852814810D18 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0757CA335507F0EBFB03DA /* Theme.swift */; };
+		0B5B4F597AD3ACD2F70EAF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BD05883F9D7422BA9F0FEB /* Assets.xcassets */; };
+		FADA793FAF8AE19DBEF2E333 /* SNKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72A8D2BD23D247F0B824046E /* SNKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C6A4383EBBB444B0A74BF508 /* StackerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFFC804D694501837B8F567 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		67FE6D61F244576D6AF1F44C /* FeedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPickerView.swift; sourceTree = "<group>"; };
+		1626F7D8715B7F7EF6A3572F /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownBlocksView.swift; sourceTree = "<group>"; };
+		1C6CB565C0AD1267B2FB1908 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		CC2C17C4F1411DA37292A5CD /* PostTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTileView.swift; sourceTree = "<group>"; };
+		716F99B7D848C9CEA470FFEE /* StackerWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackerWatchApp.swift; sourceTree = "<group>"; };
+		CA0757CA335507F0EBFB03DA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D5BD05883F9D7422BA9F0FEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45C58484A5564663B7C93640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		674CA42173E7B519821B79A5 /* SNKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SNKit; path = ../SNKit; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE7006A0F8A8753331FC7CCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADA793FAF8AE19DBEF2E333 /* SNKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B28B7AF69320201D1CF206EB = {
+			isa = PBXGroup;
+			children = (
+				C8A1E76B6CA46DDC89E29CCD /* StackerWatch */,
+				E5ED73D01DA89A489D7C578C /* Packages */,
+				E98EF9E8E463C4AD21FCC778 /* Frameworks */,
+				692092DE1C1C8624E142B71D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8A1E76B6CA46DDC89E29CCD /* StackerWatch */ = {
+			isa = PBXGroup;
+			children = (
+				2DFFC804D694501837B8F567 /* FeedModel.swift */,
+				67FE6D61F244576D6AF1F44C /* FeedPickerView.swift */,
+				1626F7D8715B7F7EF6A3572F /* FeedView.swift */,
+				60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */,
+				1C6CB565C0AD1267B2FB1908 /* PostDetailView.swift */,
+				CC2C17C4F1411DA37292A5CD /* PostTileView.swift */,
+				716F99B7D848C9CEA470FFEE /* StackerWatchApp.swift */,
+				CA0757CA335507F0EBFB03DA /* Theme.swift */,
+				D5BD05883F9D7422BA9F0FEB /* Assets.xcassets */,
+				45C58484A5564663B7C93640 /* Info.plist */,
+			);
+			path = StackerWatch;
+			sourceTree = "<group>";
+		};
+		E5ED73D01DA89A489D7C578C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				674CA42173E7B519821B79A5 /* SNKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		E98EF9E8E463C4AD21FCC778 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		692092DE1C1C8624E142B71D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6A4383EBBB444B0A74BF508 /* StackerWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E8A3AD980EC179856012B7E /* StackerWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F438D2B51A06A0C719652F59 /* Build configuration list for PBXNativeTarget "StackerWatch" */;
+			buildPhases = (
+				9E199EDCB17B4C967EDEA5CE /* Sources */,
+				FE7006A0F8A8753331FC7CCD /* Frameworks */,
+				AB2660E5E1235C14F8623B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StackerWatch;
+			packageProductDependencies = (
+				72A8D2BD23D247F0B824046E /* SNKit */,
+			);
+			productName = StackerWatch;
+			productReference = C6A4383EBBB444B0A74BF508 /* StackerWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0E8A3AD980EC179856012B7E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = C27597A03A9878D4B1DD0D3F /* Build configuration list for PBXProject "StackerWatch" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B28B7AF69320201D1CF206EB;
+			productRefGroup = 692092DE1C1C8624E142B71D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E8A3AD980EC179856012B7E /* StackerWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB2660E5E1235C14F8623B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5B4F597AD3ACD2F70EAF10 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E199EDCB17B4C967EDEA5CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A054C945BA105D23D281D28 /* FeedModel.swift in Sources */,
+				9F6DFFD6F115DAD76495ACDE /* FeedPickerView.swift in Sources */,
+				F6ABB63E0DB6F41F890FA7A4 /* FeedView.swift in Sources */,
+				76CF529EF438672DA9FA220D /* MarkdownBlocksView.swift in Sources */,
+				F3258428C4C91FF92AAC6B08 /* PostDetailView.swift in Sources */,
+				2A4303AC6D37964BF19C3CF8 /* PostTileView.swift in Sources */,
+				0C85C03983B2BBD82126C25C /* StackerWatchApp.swift in Sources */,
+				BD4A122761F2852814810D18 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E8A664B426DCB939B812EAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		EE021C88C2F80797F2C6EAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		1E0D549F0915174FF8BD83EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StackerWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		9DDA0FC41D82F4AB4C32F490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StackerWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C27597A03A9878D4B1DD0D3F /* Build configuration list for PBXProject "StackerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8A664B426DCB939B812EAF0 /* Debug */,
+				EE021C88C2F80797F2C6EAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F438D2B51A06A0C719652F59 /* Build configuration list for PBXNativeTarget "StackerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E0D549F0915174FF8BD83EB /* Debug */,
+				9DDA0FC41D82F4AB4C32F490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72A8D2BD23D247F0B824046E /* SNKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SNKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}

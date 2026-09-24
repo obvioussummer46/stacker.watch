@@ -22,7 +22,7 @@ move to the next one, tap to read the whole thing. Made for reading a few paragr
 watchos/
   SNKit/          Swift package, Foundation only: GraphQL client, models, paging, markdown, cache.
                   Unit tests run on macOS and Linux with `swift test`.
-  StackerWatch/   watchOS SwiftUI app (XcodeGen spec + sources + assets).
+  StackerWatch/   watchOS SwiftUI app (Xcode project + sources + assets).
 ```
 
 The app talks to the public GraphQL endpoint at `https://stacker.news/api/graphql` with two
@@ -30,21 +30,18 @@ queries: `items(...)` for feeds and `item(id:)` for a post with its comments. No
 
 ## Build on a Mac
 
-Requirements: Xcode 15 or newer, [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+Requirements: Xcode 15 or newer. No other tooling.
 
 ```sh
-brew install xcodegen
-cd watchos/StackerWatch
-xcodegen generate
-open StackerWatch.xcodeproj
+git clone -b claude/stacker-news-apple-watch-by88qp https://github.com/obvioussummer46/stacker.news.git
+open stacker.news/watchos/StackerWatch/StackerWatch.xcodeproj
 ```
 
-In Xcode pick your team under Signing & Capabilities (or set `DEVELOPMENT_TEAM` in
-`project.yml` and regenerate), choose an Apple Watch simulator running watchOS 10 or newer,
-and run. For a real watch, pair it with your iPhone in Xcode first.
+In Xcode pick your team under Signing & Capabilities, choose an Apple Watch simulator running
+watchOS 10 or newer, and run. For a real watch, pair it with your iPhone in Xcode first.
 
-The generated `.xcodeproj` and `Info.plist` are git-ignored. Edit `project.yml` and regenerate
-instead of editing the project in Xcode.
+The `SNKit` package is linked as a local package (the `Packages` group), so it builds as part
+of the app with no extra setup.
 
 ## Tests
 
