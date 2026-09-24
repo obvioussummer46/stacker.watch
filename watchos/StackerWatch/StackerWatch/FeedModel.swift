@@ -229,7 +229,7 @@ final class FeedModel {
             state.banner = nil
         }
         do {
-            let page = try await api.fetchFeed(key)
+            let page = try await fetchPage(key)
             guard isCurrent(source, key) else { return }
             mutate(source) { state in
                 let previous = state.selectedID
@@ -255,6 +255,14 @@ final class FeedModel {
         }
     }
 
+    /// Territory screens can't use `items(sub:)`, which hides posts below the
+    /// territory's sats filter. See `SNAPI.fetchTerritoryFeed`.
+    private func fetchPage(_ key: FeedKey, cursor: String? = nil) async throws -> ItemsPage {
+        key.sub == nil
+            ? try await api.fetchFeed(key, cursor: cursor)
+            : try await api.fetchTerritoryFeed(key, cursor: cursor)
+    }
+
     /// Drops results for a screen the user deleted, or for a superseded filter.
     private func isCurrent(_ source: FeedSource, _ key: FeedKey) -> Bool {
         key.discussionsOnly == discussionsOnly && screens.contains(source)
@@ -271,7 +279,7 @@ final class FeedModel {
         defer { mutate(source) { $0.isLoadingMore = false } }
         let key = source.key(discussionsOnly: discussionsOnly)
         do {
-            let page = try await api.fetchFeed(key, cursor: current.pager.cursor)
+            let page = try await fetchPage(key, cursor: current.pager.cursor)
             guard isCurrent(source, key) else { return }
             mutate(source) { $0.pager.append(page) }
             persist(source)

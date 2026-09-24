@@ -33,6 +33,12 @@ public struct Item: Codable, Hashable, Identifiable, Sendable {
     public var isLink: Bool { url != nil }
     public var hasText: Bool { !(text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) }
     public var primarySub: String? { subNames?.first }
+
+    /// True when the post was posted to `sub`, including cross-posts.
+    /// Case-insensitive, because territory names mix `bitcoin` with `AskSN`.
+    public func belongs(to sub: String) -> Bool {
+        subNames?.contains { $0.caseInsensitiveCompare(sub) == .orderedSame } ?? false
+    }
     /// Host of `url` without a leading "www.".
     public var domain: String? { url.flatMap(MarkdownLite.domain) }
 }
