@@ -1,83 +1,19 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Xcode / SwiftPM build products
+xcuserdata/
+DerivedData/
+.build/
+.swiftpm/
+Package.resolved
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
 
-# dependencies
-node_modules/
-/.pnp
-.pnp.js
-.cache
+# Local signing (Apple Team ID). See StackerWatch/Signing.xcconfig.
+Local.xcconfig
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-/*.sql
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*
-!.env.development
-!.env.production
-
-# local settings
-.vscode/settings.json
-
-# vercel
-.vercel
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-
-# service worker
-public/sw.js*
-sw/precache-manifest.json
-public/workbox-*.js*
-public/*-development.js
-
-.cache_ggshield
-docker-compose.*.yml
-*.sql
-*.sql.gz
-!/prisma/migrations/*/*.sql
-!/docker/db/000_seed.sql.gz
-
-# nostr wallet connect
-scripts/nwc-keys.json
-
-# lnbits
-docker/lnbits/data
-
-# lndk
-!docker/lndk/tls-*.pem
-
-# nostr link extract
-scripts/nostr-link-extract.config.json
-scripts/nostr-links.db
-scripts/twitter-link-extract.config.json
-scripts/twitter-links.db
-
-# pay-awards
-scripts/pay-awards.config.json
-
-# dnsmasq
-docker/dnsmasq/dnsmasq.d/*
 # Xcode distribution output. Signed .ipa bundles carry embedded.mobileprovision,
 # which contains the team id, the signing certificate and, for ad-hoc profiles,
 # tester device UDIDs. Xcode's Organizer drops these wherever you point it.
 *.ipa
 *.xcarchive/
 /StackerWatch */
+
+.DS_Store
