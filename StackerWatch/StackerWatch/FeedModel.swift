@@ -14,10 +14,12 @@ final class FeedModel {
         case failed(String)
     }
 
-    /// A horizontal page. Settings sits to the left of every feed screen.
+    /// A horizontal page. Settings sits to the left of every feed screen, the
+    /// reading list to the right of the last one.
     enum Page: Hashable {
         case settings
         case feed(FeedSource)
+        case saved
     }
 
     /// Everything belonging to one screen.
@@ -62,6 +64,8 @@ final class FeedModel {
     private(set) var territories: [Territory] = []
     private(set) var territoriesPhase: TerritoriesPhase = .idle
     private(set) var readPosts = ReadPosts()
+    /// The reading list, newest first.
+    private(set) var savedPosts: SavedPosts
 
     /// Screens with a refresh in flight, so preloading never doubles up.
     private var inFlight: Set<FeedSource> = []
@@ -69,6 +73,7 @@ final class FeedModel {
     private let api: SNAPI
     private let cache: FeedCache
     private let territoryCache: TerritoryCache
+    private let savedStore: SavedPostsStore
     private let defaults: UserDefaults
 
     private static let screensKey = "screens"
@@ -81,11 +86,14 @@ final class FeedModel {
     init(api: SNAPI = SNAPI(),
          cache: FeedCache = FeedCache(),
          territoryCache: TerritoryCache = TerritoryCache(),
+         savedStore: SavedPostsStore = SavedPostsStore(),
          defaults: UserDefaults = .standard) {
         self.api = api
         self.cache = cache
         self.territoryCache = territoryCache
+        self.savedStore = savedStore
         self.defaults = defaults
+        savedPosts = savedStore.load()
         discussionsOnly = defaults.object(forKey: Self.discussionsKey) as? Bool ?? true
         textSize = TextSize(rawValue: defaults.object(forKey: Self.textSizeKey) as? Int ?? -1) ?? .default
         let stored = Self.storedScreens(defaults)
@@ -114,6 +122,18 @@ final class FeedModel {
         readPosts.insert(id)
         guard let data = try? JSONEncoder().encode(readPosts) else { return }
         defaults.set(data, forKey: Self.readPostsKey)
+    }
+
+    // MARK: Saved posts
+
+    func isSaved(_ id: String) -> Bool { savedPosts.contains(id) }
+
+    /// Saves or unsaves a post. Returns whether it is saved afterwards.
+    @discardableResult
+    func toggleSaved(_ item: Item) -> Bool {
+        let saved = savedPosts.toggle(item)
+        try? savedStore.save(savedPosts)
+        return saved
     }
 
     // MARK: Reading state

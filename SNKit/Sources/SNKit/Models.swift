@@ -41,6 +41,9 @@ public struct Item: Codable, Hashable, Identifiable, Sendable {
     }
     /// Host of `url` without a leading "www.".
     public var domain: String? { url.flatMap(MarkdownLite.domain) }
+
+    /// The post's page on stacker.news, for Handoff and sharing.
+    public var webURL: URL { URL(string: "https://stacker.news/items/\(id)")! }
 }
 
 public struct User: Codable, Hashable, Sendable {

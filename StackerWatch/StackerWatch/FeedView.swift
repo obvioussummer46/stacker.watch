@@ -3,8 +3,9 @@ import SNKit
 
 /// Root screen. Swipe sideways to change screen, turn the crown to move between posts.
 ///
-/// Settings is the leftmost page, so it is one swipe right from the first feed. No
-/// toolbar buttons: on watchOS they render as tinted circles over the text.
+/// Settings is the leftmost page, so it is one swipe right from the first feed; the
+/// saved posts page is the rightmost. No toolbar buttons: on watchOS they render as
+/// tinted circles over the text.
 struct FeedView: View {
     @Environment(FeedModel.self) private var model
 
@@ -18,6 +19,8 @@ struct FeedView: View {
                     FeedPageView(source: source)
                         .tag(FeedModel.Page.feed(source))
                 }
+                SavedPostsView()
+                    .tag(FeedModel.Page.saved)
             }
             .tabViewStyle(.page)
             .navigationTitle(title)
@@ -37,6 +40,7 @@ struct FeedView: View {
         switch model.page {
         case .settings: return "Settings"
         case .feed(let source): return source.fullTitle
+        case .saved: return "Saved"
         }
     }
 }

@@ -24,6 +24,13 @@ a few paragraphs in bed.
   Each tile shows the territory and the poster; zaps are in the reader.
 - **Reader**: tap a tile for the full post, rendered from markdown, followed by the top-level
   comments. The crown scrolls.
+- **Save for later**: *Save* inside a post keeps it on the rightmost page, *Saved*, newest
+  first and readable offline. Tap *Saved* inside the post to remove it. Up to 100 posts.
+- **Open on iPhone**: while a post is open the watch advertises it over Handoff, so the paired
+  iPhone shows a Safari icon at the bottom of the Lock Screen and in the App Switcher; tapping
+  it opens the post on stacker.news. The *iPhone* button inside a post explains this and offers
+  the share sheet (Messages, Mail) as a way to send the link anywhere else. There is no API
+  that lets a watch app open a page on the phone directly, so Handoff is the tap.
 - **No waiting**: every screen refreshes in the background on launch and on foreground, so a
   sideways swipe lands on posts instead of a spinner.
 - **Settings**: the leftmost page, one swipe right from the first feed. Long-press and drag to
