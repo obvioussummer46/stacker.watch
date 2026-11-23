@@ -4,7 +4,5 @@
 <dict>
 	<key>WKApplication</key>
 	<true/>
-	<key>WKWatchOnly</key>
-	<true/>
 </dict>
 </plist>

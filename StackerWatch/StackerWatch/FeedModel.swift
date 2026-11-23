@@ -66,6 +66,9 @@ final class FeedModel {
     private(set) var readPosts = ReadPosts()
     /// The reading list, newest first.
     private(set) var savedPosts: SavedPosts
+    /// Called after the reading list changes. The app hooks the iPhone sync up here,
+    /// so the model stays free of WatchConnectivity.
+    @ObservationIgnored var savedPostsDidChange: ((SavedPosts) -> Void)?
 
     /// Screens with a refresh in flight, so preloading never doubles up.
     private var inFlight: Set<FeedSource> = []
@@ -132,8 +135,20 @@ final class FeedModel {
     @discardableResult
     func toggleSaved(_ item: Item) -> Bool {
         let saved = savedPosts.toggle(item)
-        try? savedStore.save(savedPosts)
+        persistSaved()
         return saved
+    }
+
+    /// A removal made on the iPhone.
+    func removeSaved(_ id: String) {
+        guard savedPosts.contains(id) else { return }
+        savedPosts.remove(id)
+        persistSaved()
+    }
+
+    private func persistSaved() {
+        try? savedStore.save(savedPosts)
+        savedPostsDidChange?(savedPosts)
     }
 
     // MARK: Reading state

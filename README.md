@@ -4,9 +4,10 @@
 
 # Stacker Watch
 
-An unofficial Apple Watch app for reading [stacker.news](https://stacker.news).
+An unofficial Apple Watch app for reading [stacker.news](https://stacker.news), with a small
+iPhone companion that lists what you saved on the watch.
 
-This repo holds only the watch app. It is not the stacker.news site; that lives at
+This repo holds only those apps. It is not the stacker.news site; that lives at
 [stackernews/stacker.news](https://github.com/stackernews/stacker.news). The app is
 not affiliated with or endorsed by stacker.news.
 
@@ -24,13 +25,13 @@ a few paragraphs in bed.
   Each tile shows the territory and the poster; zaps are in the reader.
 - **Reader**: tap a tile for the full post, rendered from markdown, followed by the top-level
   comments. The crown scrolls.
-- **Save for later**: *Save* inside a post keeps it on the rightmost page, *Saved*, newest
-  first and readable offline. Tap *Saved* inside the post to remove it. Up to 100 posts.
-- **Open on iPhone**: while a post is open the watch advertises it over Handoff, so the paired
-  iPhone shows a Safari icon at the bottom of the Lock Screen and in the App Switcher; tapping
-  it opens the post on stacker.news. The *iPhone* button inside a post explains this and offers
-  the share sheet (Messages, Mail) as a way to send the link anywhere else. There is no API
-  that lets a watch app open a page on the phone directly, so Handoff is the tap.
+- **Save for later**: *Save for later* inside a post keeps it on the rightmost page, *Saved*,
+  newest first and readable offline. Tap *Saved* inside the post to remove it. Up to 100 posts.
+- **Read on iPhone**: the iPhone app is a single screen listing everything saved on the watch.
+  Tap a post to read it on stacker.news, swipe to remove it from both devices. The list
+  travels over WatchConnectivity as the session's application context, so it arrives even if
+  the phone app was closed the whole time; removals queue back to the watch the same way. The
+  watch app installs and works on its own; the iPhone app is optional.
 - **No waiting**: every screen refreshes in the background on launch and on foreground, so a
   sideways swipe lands on posts instead of a spinner.
 - **Settings**: the leftmost page, one swipe right from the first feed. Long-press and drag to
@@ -47,7 +48,7 @@ a few paragraphs in bed.
 ```
 SNKit/          Swift package, Foundation only: GraphQL client, models, paging, markdown, cache.
                 Unit tests run on macOS and Linux with `swift test`.
-StackerWatch/   watchOS SwiftUI app plus its iOS container (Xcode project + sources + assets).
+StackerWatch/   Xcode project. StackerWatch/ is the watchOS app, Stacker/ the iPhone companion.
 Tools/          Icon generator.
 ```
 

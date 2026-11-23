@@ -17,7 +17,7 @@ struct SavedPostsView: View {
                     .foregroundStyle(.snYellow)
                 Text("Nothing saved yet.")
                     .foregroundStyle(.secondary)
-                Text("Open a post and tap Save.")
+                Text("Open a post and tap Save for later. Saved posts also show up in Stacker on your iPhone.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
@@ -32,7 +32,7 @@ struct SavedPostsView: View {
                         }
                     }
                 } footer: {
-                    Text("Open a post and tap Saved to remove it.")
+                    Text("Also in Stacker on your iPhone. Open a post and tap Saved to remove it.")
                 }
             }
         }

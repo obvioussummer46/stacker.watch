@@ -19,6 +19,13 @@
 		7A1D5A4E9C3B4F02A6E8D1B8 /* SavedPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1D5A4E9C3B4F02A6E8D1B7 /* SavedPostsView.swift */; };
 		F6ABB63E0DB6F41F890FA7A4 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626F7D8715B7F7EF6A3572F /* FeedView.swift */; };
 		FADA793FAF8AE19DBEF2E333 /* SNKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72A8D2BD23D247F0B824046E /* SNKit */; };
+		5A7C000000000000000000B7 /* WatchSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C000000000000000000A5 /* WatchSync.swift */; };
+		5A7C000000000000000000B1 /* StackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C000000000000000000A1 /* StackerApp.swift */; };
+		5A7C000000000000000000B2 /* SavedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C000000000000000000A2 /* SavedListView.swift */; };
+		5A7C000000000000000000B3 /* PhoneSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C000000000000000000A3 /* PhoneSync.swift */; };
+		5A7C000000000000000000B5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0757CA335507F0EBFB03DA /* Theme.swift */; };
+		5A7C000000000000000000B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7C000000000000000000A4 /* Assets.xcassets */; };
+		5A7C000000000000000000B6 /* SNKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A7C000000000000000000C4 /* SNKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +58,11 @@
 		7A1D5A4E9C3B4F02A6E8D1B7 /* SavedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsView.swift; sourceTree = "<group>"; };
 		2DFFC804D694501837B8F567 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		32B3538430654BB70062774A /* Stacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		32B3538930654BB70062774A /* Stacker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stacker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A7C000000000000000000A5 /* WatchSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSync.swift; sourceTree = "<group>"; };
+		5A7C000000000000000000A1 /* StackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackerApp.swift; sourceTree = "<group>"; };
+		5A7C000000000000000000A2 /* SavedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListView.swift; sourceTree = "<group>"; };
+		5A7C000000000000000000A3 /* PhoneSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSync.swift; sourceTree = "<group>"; };
+		5A7C000000000000000000A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45C58484A5564663B7C93640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E3F858967E4451F4987746 /* MarkdownBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownBlocksView.swift; sourceTree = "<group>"; };
 		674CA42173E7B519821B79A5 /* SNKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SNKit; path = ../SNKit; sourceTree = "<group>"; };
@@ -64,11 +75,15 @@
 		5165CF6100000000000000A1 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		32B3538D30654BB70062774A /* Stacker Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Stacker Watch App"; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
+		5A7C000000000000000000C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7C000000000000000000B6 /* SNKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FE7006A0F8A8753331FC7CCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,7 +100,6 @@
 			children = (
 				C6A4383EBBB444B0A74BF508 /* StackerWatch.app */,
 				32B3538430654BB70062774A /* Stacker.app */,
-				32B3538930654BB70062774A /* Stacker Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,8 +109,8 @@
 			children = (
 				5165CF6100000000000000A1 /* Signing.xcconfig */,
 				C8A1E76B6CA46DDC89E29CCD /* StackerWatch */,
+				5A7C000000000000000000C1 /* Stacker */,
 				E5ED73D01DA89A489D7C578C /* Packages */,
-				32B3538D30654BB70062774A /* Stacker Watch App */,
 				E98EF9E8E463C4AD21FCC778 /* Frameworks */,
 				692092DE1C1C8624E142B71D /* Products */,
 			);
@@ -114,10 +128,22 @@
 				7A1D5A4E9C3B4F02A6E8D1B7 /* SavedPostsView.swift */,
 				716F99B7D848C9CEA470FFEE /* StackerWatchApp.swift */,
 				CA0757CA335507F0EBFB03DA /* Theme.swift */,
+				5A7C000000000000000000A5 /* WatchSync.swift */,
 				D5BD05883F9D7422BA9F0FEB /* Assets.xcassets */,
 				45C58484A5564663B7C93640 /* Info.plist */,
 			);
 			path = StackerWatch;
+			sourceTree = "<group>";
+		};
+		5A7C000000000000000000C1 /* Stacker */ = {
+			isa = PBXGroup;
+			children = (
+				5A7C000000000000000000A1 /* StackerApp.swift */,
+				5A7C000000000000000000A2 /* SavedListView.swift */,
+				5A7C000000000000000000A3 /* PhoneSync.swift */,
+				5A7C000000000000000000A4 /* Assets.xcassets */,
+			);
+			path = Stacker;
 			sourceTree = "<group>";
 		};
 		E5ED73D01DA89A489D7C578C /* Packages */ = {
@@ -162,6 +188,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32B3539A30654BB80062774A /* Build configuration list for PBXNativeTarget "Stacker" */;
 			buildPhases = (
+				5A7C000000000000000000C2 /* Sources */,
+				5A7C000000000000000000C3 /* Frameworks */,
 				32B3538230654BB70062774A /* Resources */,
 				32B3539630654BB80062774A /* Embed Watch Content */,
 			);
@@ -172,10 +200,11 @@
 			);
 			name = Stacker;
 			packageProductDependencies = (
+				5A7C000000000000000000C4 /* SNKit */,
 			);
 			productName = Stacker;
 			productReference = 32B3538430654BB70062774A /* Stacker.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -219,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7C000000000000000000B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +263,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A7C000000000000000000C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7C000000000000000000B1 /* StackerApp.swift in Sources */,
+				5A7C000000000000000000B2 /* SavedListView.swift in Sources */,
+				5A7C000000000000000000B3 /* PhoneSync.swift in Sources */,
+				5A7C000000000000000000B5 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E199EDCB17B4C967EDEA5CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +287,7 @@
 				7A1D5A4E9C3B4F02A6E8D1B8 /* SavedPostsView.swift in Sources */,
 				0C85C03983B2BBD82126C25C /* StackerWatchApp.swift in Sources */,
 				BD4A122761F2852814810D18 /* Theme.swift in Sources */,
+				5A7C000000000000000000B7 /* WatchSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,19 +308,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StackerWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = news.stacker.watch;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -293,52 +336,78 @@
 		32B3539430654BB80062774A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 0.2.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		32B3539530654BB80062774A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 0.2.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -348,19 +417,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StackerWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Stacker;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = news.stacker.watch;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = news.stacker.watch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -519,6 +589,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5A7C000000000000000000C4 /* SNKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SNKit;
+		};
 		72A8D2BD23D247F0B824046E /* SNKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SNKit;
